@@ -26,7 +26,8 @@ public:
               Q.push(neighbours);
         }
        }
-       if(roots.empty())roots.push_back(0);
+       if(roots.empty())
+           roots.push_back(0);
        return roots;
     }
 };
