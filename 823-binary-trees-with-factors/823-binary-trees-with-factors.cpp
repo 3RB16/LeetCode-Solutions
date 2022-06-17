@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<int , long long> dp;
+    unordered_map<int , long long> dp;
     set <int> factors;
     static const int MOD = 1e9 + 7;
     long long ways(int value){
