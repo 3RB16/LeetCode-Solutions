@@ -1,5 +1,10 @@
 class Solution {
 public:
+    /**
+     perm[0] = totalXor XOR perm[1] XOR perm[2] XOR perm[3] XOR perm[4] XOR ... perm[n]
+     encoded[1] = perm[1] XOR perm[2]
+     encoded[3] = perm[3] XOR perm[4]
+    **/
     vector<int> decode(vector<int>& encoded) {
        int n = (int)encoded.size() + 1;
        vector <int> perm(n , 0);
