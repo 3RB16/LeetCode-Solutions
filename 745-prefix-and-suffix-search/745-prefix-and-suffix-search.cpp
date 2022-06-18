@@ -12,7 +12,7 @@ class WordFilter {
                 string p = word.substr(0, j);
                 for (int k = 0; k < wordSize; k++) {
                     string s = word.substr(k, wordSize);
-                    position[p + "|" + s] = i + 1;
+                    position[p + "|" + s] = i;
                 }
             }
         }
@@ -20,6 +20,6 @@ class WordFilter {
 
     int f(string prefix, string suffix) {
         string s = prefix + "|" + suffix;
-        return position[s] - 1;
+        return position.find(s) != position.end() ? position[s] : -1;
     }
 };
