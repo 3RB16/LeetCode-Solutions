@@ -1,21 +1,20 @@
 class StockPrice {
 public:
     multiset <int> count;
-    map<int , int> last;
+    map<int , int> seen;
     StockPrice() {
-       count.clear();
-       last.clear();
+       count.clear() , seen.clear();
     }
     
     void update(int timestamp, int price) {
-     if(last.count(timestamp))
-         count.erase(count.find(last[timestamp]));
-      last[timestamp] = price;
+     if(seen.count(timestamp))
+         count.erase(count.find(seen[timestamp]));
+      seen[timestamp] = price;
       count.insert(price);
     }
     
     int current() {
-       return last.rbegin()->second;
+       return seen.rbegin()->second;
     }
     
     int maximum() {
