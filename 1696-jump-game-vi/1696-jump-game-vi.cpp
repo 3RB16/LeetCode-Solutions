@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxResult(vector<int>& nums, int k) {
-        multiset <int> range;
+        multiset <int , greater<int>> range;
         int n = (int)nums.size();
         int dp[n + 1];
         dp[0] = nums[0];
@@ -10,7 +10,7 @@ public:
            if(range.size() > k){
              range.erase(range.find(dp[i - k - 1]));
            }
-           int currentMax = *range.rbegin();
+           int currentMax = *range.begin();
            dp[i] = nums[i] + currentMax;
            range.insert(dp[i]);
         }
