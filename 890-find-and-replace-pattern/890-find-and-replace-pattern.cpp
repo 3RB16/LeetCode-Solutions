@@ -11,7 +11,7 @@ public:
         return answer;
     }
 private:
-    vector <int> paint(string current) {
+    inline vector <int> paint(string current) {
         int color = 1;
         unordered_map <char , int> seen;
         vector <int> to_return;
