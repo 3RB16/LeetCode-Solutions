@@ -1,5 +1,16 @@
 class Solution {
 public:
+    vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
+        vector <int> target = paint(pattern);
+        vector <string> answer;
+        for(const string word : words){
+            vector <int> current = paint(word);
+            if(current == target)
+                answer.push_back(word);
+        }
+        return answer;
+    }
+private:
     vector <int> paint(string current) {
         int color = 1;
         unordered_map <char , int> seen;
@@ -10,15 +21,5 @@ public:
             to_return.push_back(seen[current[i]]);
         }
         return to_return;
-    }
-    vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
-        vector <int> target = paint(pattern);
-        vector <string> answer;
-        for(const string word : words){
-            vector <int> current = paint(word);
-            if(current == target)
-                answer.push_back(word);
-        }
-        return answer;
     }
 };
