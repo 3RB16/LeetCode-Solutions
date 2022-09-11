@@ -8,14 +8,14 @@ public:
         sort(rbegin(engineers), rend(engineers));
         long speed_sum = 0, ans = 0;
         priority_queue<int, vector<int>, greater<int>> min_heap;
-        for (const auto[e, s] : engineers) {
-            speed_sum += s;
-            min_heap.emplace(s);
+        for (const auto[efficiency, speed] : engineers) {
+            speed_sum += speed;
+            min_heap.emplace(speed);
             if (min_heap.size() > k) { 
                 speed_sum -= min_heap.top();
                 min_heap.pop();
             }
-            ans = max(ans, speed_sum * e);
+            ans = max(ans, speed_sum * efficiency);
         }
         return ans % (int)(1e9 + 7);
     }
