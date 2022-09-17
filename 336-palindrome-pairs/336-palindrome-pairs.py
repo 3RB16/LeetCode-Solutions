@@ -10,15 +10,15 @@ class Solution:
             elif word == word[::-1] and "" in hashmap:
                 answer.add((hashmap[word], hashmap[""]))
                 answer.add((hashmap[""], hashmap[word]))
-            revWord = word[::-1]
-            for i in range(len(revWord) - 1, -1, -1):
-                rightPart = revWord[i:]
+            reversedWord = word[::-1]
+            for i in range(len(reversedWord) - 1, -1, -1):
+                rightPart = reversedWord[i:]
                 if rightPart in hashmap and rightPart != word:
                     palindrome = word + rightPart
                     if palindrome == palindrome[::-1]:
                         answer.add((hashmap[word], hashmap[rightPart]))
-            for i in range(1, len(revWord) + 1):
-                leftPart = revWord[:i]
+            for i in range(1, len(reversedWord) + 1):
+                leftPart = reversedWord[:i]
                 if leftPart in hashmap and leftPart != word:
                     palindrome = leftPart + word
                     if palindrome == palindrome[::-1]:
