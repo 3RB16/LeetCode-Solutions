@@ -32,8 +32,7 @@ public:
             adj[u[1]].push_back(u[0]); 
         }
         
-        for (int i = 0; i < n; ++i) {
-            if (pos.find(vals[i]) == pos.end()) pos[vals[i]] = {}; 
+        for (int i = 0; i < n; ++i) { 
             pos[vals[i]].push_back(i); 
             stvals.insert(vals[i]); 
         }
