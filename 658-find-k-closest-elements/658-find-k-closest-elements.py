@@ -2,7 +2,9 @@ class Solution(object):
     def findClosestElements(self, arr, k, x):
         distance = []
         for value in arr:
-            distance.append((abs(x - value) , value))
+            distance.append(
+                (abs(x - value) , value)
+            )
         distance.sort()
         answer = []
         for i in range(k):
