@@ -9,16 +9,16 @@ public:
             indegree[u]++;
         }                     
         
-        queue<int> q;
+        queue<int> topo;
         for(int i = 0; i < numCourses; i++)
-            if(indegree[i] == 0) q.push(i);        
+            if(indegree[i] == 0) topo.push(i);        
         
-        while(!q.empty()) {
-            auto node = q.front(); q.pop();
+        while(!topo.empty()) {
+            auto node = topo.front(); topo.pop();
             ans.push_back(node);                     
             for(auto nextCourse : graph[node]) 
                 if(--indegree[nextCourse] == 0)     
-                    q.push(nextCourse);            
+                    topo.push(nextCourse);            
         }
         if(size(ans) != numCourses) {
             ans = vector<int>();
