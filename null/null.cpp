@@ -1,15 +1,15 @@
-
-class Solution {
-public:
-    vector<long long> unmarkedSumArray(vector<int>& nums, 
-vector<vector<int>>& queries) {
-        set<pair<int , int>> unmarked;
-        int n = int(nums.size());
-        vector<bool> marked(n , false);
-        long sum = 0;
-        for(int i = 0;i < n;i++) {
-            unmarked.emplace(nums[i], i);
-            sum += nums[i];
+            while(!unmarked.empty() && value-- > 0) {
+                auto [value , index] = *unmarked.begin();
+                sum -= value, marked[index] = true;
+                unmarked.erase(unmarked.begin());
+            }
+            ans.push_back(sum);
         }
-        vector<long long> ans;
+        return ans;
+    }
+};
+            if (!marked[index]){
+                sum -= nums[index] , marked[index] = true;
+                unmarked.erase(make_pair(nums[index] , index));
+            }
 [1,2,2,1,2,3,1]
