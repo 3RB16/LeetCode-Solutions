@@ -16,10 +16,8 @@ func dfs(node *Node, order *[]int) {
     if node == nil {
         return
     }
-    if len(node.Children) > 0 {
-        for _, c := range node.Children {
-            dfs(c, order)
-        }
+    for _, child := range node.Children {
+        dfs(child, order)
     }
     *order = append(*order, node.Val)
 }
