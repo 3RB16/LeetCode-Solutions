@@ -1,18 +1,16 @@
 class MyCalendar {
 public:
-    map<int , int> events;
+    vector<pair<int , int>> events;
     MyCalendar() {
-     events.clear();   
+        events.clear();
     }
-    
-    bool book(int start, int end) {
-      auto next = events.upper_bound(start);
-      if(next == events.end() || end <= next->second){
-        events[end] = start; 
-        return true;
-      }
 
-      return false;
+    bool book(int start, int end) {
+        for(const auto [event_start, event_end] : events) if (event_start < end && start < event_end){
+            return false;
+        }
+        events.emplace_back(start, end);
+        return true;
     }
 };
 
