@@ -24,12 +24,7 @@ public:
     void put(int key, int value) {
         // update key
         if (cache.count(key) > 0) {
-            auto it = cache[key];
-            auto [_key, val] = *it;
-
-            cache.erase(key);
-            lru.erase(it);
-
+            lru.erase(cache[key]);
             lru.push_front({key, value});
             cache[key] = lru.begin();
             return;
