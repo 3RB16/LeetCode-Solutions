@@ -9,10 +9,11 @@ public:
         for(int i = n - 1;i >= 0;i--) {
             suffix[i] = suffix[i + 1] + cardPoints[i];
         }
-        reverse(begin(suffix), end(suffix));
+        //reverse(begin(suffix), end(suffix));
         long long max_score = 0;
         for(int i = 0;i <= k;i++) {
-            max_score = max(max_score, prefix[i] + suffix[k - i]);
+            int rem = n - (k - i);
+            max_score = max(max_score, prefix[i] + (rem < 0 ? 0 : suffix[rem]));
         }
 
         return max_score;
