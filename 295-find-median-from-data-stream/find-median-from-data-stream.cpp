@@ -9,10 +9,10 @@ public:
     
     void addNum(int num) {
         max_heap.push(num);
-        min_heap.push(max_heap.top());
-        max_heap.pop();
+        min_heap.push(max_heap.top()); // to make sure min heap has all biggest values
+        max_heap.pop(); // erase top from max_heap to avoid inconsistancy 
 
-        if(min_heap.size() > max_heap.size()) {
+        if(min_heap.size() > max_heap.size()) { // to handle odd case
             max_heap.push(min_heap.top());
             min_heap.pop();
         }
