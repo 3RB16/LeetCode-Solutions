@@ -34,11 +34,13 @@ public:
             cache[key] = lru.begin();
             return;
         } 
+
         if (lru.size() == cap) {
-            auto it = lru.back();
-            cache.erase(it.first);
+            auto [key, value] = lru.back();
+            cache.erase(key);
             lru.pop_back();
         }
+
         lru.push_front({key,value});
         cache[key] = lru.begin();
     }
